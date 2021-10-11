@@ -4,7 +4,14 @@ export default {
     public: '/',
     src: '/dist',
   },
-  plugins: ['@snowpack/plugin-react-refresh', '@snowpack/plugin-dotenv'],
+  devOptions: {
+    tailwindConfig: './tailwind.config.js',
+  },
+  plugins: [
+    '@snowpack/plugin-dotenv',
+    '@snowpack/plugin-react-refresh',
+    '@snowpack/plugin-postcss',
+  ],
   routes: [
     /* Enable an SPA Fallback in development: */
     // {"match": "routes", "src": ".*", "dest": "/index.html"},
