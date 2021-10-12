@@ -1,5 +1,7 @@
 ## Tech used in this project:
 - React
-- Snowpack
+- Mongo
+- Express
+- Node
 - Tailwind CSS
 - Axios
