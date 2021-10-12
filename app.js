@@ -2,7 +2,6 @@ const express = require('express')
 const connectDB = require('./config/db')
 const apppRoute = require('./routes/app')
 const urlRoute = require('./routes/url')
-const connnectDB = require('./config/db')
 const app = express()
 // connect to database
 connectDB()

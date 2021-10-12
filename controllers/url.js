@@ -18,12 +18,28 @@ const url = async (req, res) => {
     // Check long url
     if(validUrl.isUri(longUrl)) {
         try {
+            // checking if the url is in the database
+            let url = await Url.findOne({ longUrl })
 
+            if(url) {
+                res.json(url)
+            } else {
+                const shortUrl = baseUrl + '/' + urlCode
+                url = new Url({
+                    longUrl,
+                    shortUrl,
+                    urlCode,
+                    date: new Date()
+                })
+                await url.save()
+                res.json(url)
+            }
         } catch (error) {
-
+            console.error(error)
+            res.status(500).json('Server error')
         }
     } else {
-
+        res.status(404).json('Invalid long url')
     }
 }
 
